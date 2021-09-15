@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ja">
+  <head>
+    <title>Hello</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>Springboot Hello Sample</h1>
+    <p>
+      <span th:text="${message}"></span>!!!
+      <span th:text="@{/main}"></span>
+      <span th:text="'SSSSSSSSSSSSSSSS'"></span>
+      <span th:text="${helloMessage}"></span><span th:text="${member.name}"></span>さん
+    </p>
+    
+    <p th:object="${member}">
+    こんにちは、<span th:text="*{name}"></span>さん
+  </p>
+  
+  <a th:href="@{/members/{memberId}(memberId=${member.id})}" th:text="${member.name} + 'さんへのリンク'"></a>
+  
+  
+  
+  <ul>
+    <li>テキストリテラル
+      <ul>
+        <li>th:text="'文字列です'" → <th:block th:text="'文字列です'" /></li>
+      </ul>
+    </li>
+    <li>数値リテラル
+      <ul>
+        <li>th:text="0" → <th:block th:text="0" /></li>
+        <li>th:text="34" → <th:block th:text="34" /></li>
+        <li>th:text="3.0" → <th:block th:text="3.0" /></li>
+      </ul>
+    </li>
+    <li>真偽値リテラル
+      <ul>
+        <li>th:text="true" → <th:block th:text="true" /></li>
+        <li>th:text="false" → <th:block th:text="false" /></li>
+      </ul>
+    </li>
+    <li>Nullリテラル
+      <ul>
+        <li>th:text="null" → <th:block th:text="null" /></li>
+      </ul>
+    </li>
+    <li>リテラルトークン
+      <ul>
+        <li>th:text="abc" → <th:block th:text="abc" /></li>
+      </ul>
+    </li>
+  </ul>
+  </body>
+</html>
